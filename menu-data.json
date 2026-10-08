@@ -1,0 +1,43 @@
+﻿{
+  "menu": [
+    {
+      "id": 1,
+      "nombre": "Inicio",
+      "enlace": "/inicio",
+      "icono": "🏠",
+      "submenu": []
+    },
+    {
+      "id": 2,
+      "nombre": "Sobre Nosotros",
+      "enlace": "/sobre-nosotros",
+      "icono": "ℹ️",
+      "submenu": [
+        {
+          "id": 21,
+          "nombre": "Historia",
+          "enlace": "/historia"
+        },
+        {
+          "id": 22,
+          "nombre": "Equipo",
+          "enlace": "/equipo"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "Servicios",
+      "enlace": "/servicios",
+      "icono": "🛠️",
+      "submenu": []
+    },
+    {
+      "id": 4,
+      "nombre": "Contacto",
+      "enlace": "/contacto",
+      "icono": "✉️",
+      "submenu": []
+    }
+  ]
+}

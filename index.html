@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Dinámico</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            background: #2c3e50;
+            padding: 0;
+        }
+
+        .menu-principal {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .menu-enlace {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+            cursor: pointer;
+        }
+
+            .menu-enlace:hover {
+                background: #34495e;
+            }
+
+        .submenu {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background: #34495e;
+            min-width: 200px;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .menu-item:hover > .submenu {
+            display: block;
+        }
+
+        .submenu .menu-enlace {
+            padding: 10px 20px;
+        }
+
+        .boton-menu {
+            display: none;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            font-size: 24px;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        .contenedor-form {
+            padding: 20px;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, button {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+            button[type="submit"] {
+                background: #27ae60;
+                color: white;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+
+        .mensaje {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            display: none;
+        }
+
+        .exito {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        @media (max-width: 768px) {
+            .boton-menu {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .menu-principal {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+            }
+
+                .menu-principal.activo {
+                    display: flex;
+                }
+
+            .submenu {
+                position: static;
+                box-shadow: none;
+                padding-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <button class="boton-menu" id="botonMenu">☰ Menú</button>
+        <ul class="menu-principal" id="contenedorMenu"></ul>
+    </nav>
+
+    <div class="contenedor-form">
+        <h3>Agregar Nueva Opción al Menú</h3>
+        <form id="formAgregar">
+            <input type="text" id="campoNombre" placeholder="Nombre de la opción" required>
+            <input type="text" id="campoEnlace" placeholder="Enlace (ej: /nueva-pagina)" required>
+            <input type="text" id="campoIcono" placeholder="Icono (emoji opcional)">
+            <button type="submit">Agregar Opción</button>
+        </form>
+        <div id="cajaMensaje" class="mensaje"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
